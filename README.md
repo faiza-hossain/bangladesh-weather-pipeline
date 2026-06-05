@@ -1,16 +1,16 @@
-# 🇧🇩 Bangladesh Decadal Weather Pipeline (2016 - 2025)
+# Bangladesh Decadal Weather Pipeline (2016 - 2025)
 
 An automated data engineering pipeline that extracts, processes, and archives 10 years of continuous, hourly historical weather parameters for 4 major divisions in Bangladesh: **Dhaka, Chittagong, Sylhet, and Rajshahi**.
 
-🚀 **Kaggle Dataset Link:** [Insert Your Kaggle Dataset URL Here]  
-📊 **Usability Score:** 9.41/10
+**Kaggle Dataset Link:** (https://www.kaggle.com/datasets/faizahossain/bangladesh-weather-dataset2016-2025)  
+**Usability Score:** 9.41/10
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 This project contains an end-to-end data pipeline written in Python that programmatically extracts meteorological reanalysis data. The resulting dataset spans exactly a decade (Jan 1, 2016 – Dec 31, 2025), delivering **350,880 rows** of continuous hourly tracking. It is designed for time-series forecasting, climate change analysis, and regional environmental modeling.
 
-## 🗂️ Dataset Architecture
+## Dataset Architecture
 The compiled dataset (`bangladesh_weather_2016_2025.csv`) tracks 10 critical parameters:
 
 | Column Name | Data Type | Description |
@@ -35,7 +35,7 @@ The compiled dataset (`bangladesh_weather_2016_2025.csv`) tracks 10 critical par
 
 ---
 
-## 📊 Quick Starter Analysis
+## Quick Starter Analysis
 You can easily load and visualize the annual warming trends across the divisions using this minimal Python snippet:
 
 ```python
