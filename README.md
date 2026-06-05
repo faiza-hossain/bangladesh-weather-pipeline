@@ -1,6 +1,6 @@
 # Bangladesh Decadal Weather Pipeline (2016 - 2025)
 
-An automated data engineering pipeline that extracts, processes, and archives 10 years of continuous, hourly historical weather parameters for 4 major divisions in Bangladesh: **Dhaka, Chittagong, Sylhet, and Rajshahi**.
+An automated data engineering pipeline that extracts, processes, and archives 10 years of continuous, hourly historical weather parameters for 4 major divisions in Bangladesh: **Dhaka, Chittagong, Sylhet and Rajshahi**.
 
 **Kaggle Dataset Link:** (https://www.kaggle.com/datasets/faizahossain/bangladesh-weather-dataset2016-2025)  
 **Usability Score:** 9.41/10
@@ -28,7 +28,7 @@ The compiled dataset (`bangladesh_weather_2016_2025.csv`) tracks 10 critical par
 
 ---
 
-## ⚙️ Data Pipeline & Provenance
+## Data Pipeline & Provenance
 * **Source Provider:** European Centre for Medium-Range Weather Forecasts (ECMWF) ERA5 Reanalysis Model, served via the **Open-Meteo Historical Weather API**.
 * **Collection Methodology:** A custom Python pipeline loops through the exact latitude and longitude coordinates of the target administrative divisions. 
 * **Data Engineering:** Textual timestamps are converted to native datetime configurations, geographic labels are appended dynamically, and the independent arrays are vertically concatenated into a single, optimized static layout using Pandas.
@@ -42,16 +42,10 @@ You can easily load and visualize the annual warming trends across the divisions
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-
-# Load dataset
 df = pd.read_csv('bangladesh_weather_2016_2025.csv')
 df['time'] = pd.to_datetime(df['time'])
 df['year'] = df['time'].dt.year
-
-# Aggregate to annual mean temperatures
-annual_trends = df.groupby(['year', 'city'])['temperature_2m'].mean().reset_index()
-
-# Plot
+annual_trends = df.groupby(['year','city'])['temperature_2m'].mean().reset_index()
 plt.figure(figsize=(10, 5))
 sns.lineplot(data=annual_trends, x='year', y='temperature_2m', hue='city', marker='o')
 plt.title('Average Annual Temperature Trends in Bangladesh (2016 - 2025)')
